@@ -22,13 +22,13 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService(){
         UserDetails user1 = User.builder()
                 .username("admin")
-                .password(passwordEncoder().encode("password1"))
+                .password(passwordEncoder().encode("admin_password"))
                 .roles("ADMIN")
                 .build();
 
         UserDetails user2 = User.builder()
-                .username("user2")
-                .password(passwordEncoder().encode("password2"))
+                .username("user")
+                .password(passwordEncoder().encode("user_password"))
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user1, user2); // stores them for authentication
